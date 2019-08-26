@@ -6,6 +6,11 @@
 
 #![warn(missing_docs, missing_debug_implementations, rust_2018_idioms)]
 
+#[cfg(feature = "libc")]
+extern crate libc;
+#[cfg(feature = "no-libc")]
+extern crate libc_unix_shim as libc;
+
 use std::convert::AsRef;
 use std::io;
 use std::ffi::OsStr;
