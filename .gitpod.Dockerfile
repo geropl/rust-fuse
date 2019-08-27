@@ -8,4 +8,6 @@ RUN apt-get update && apt-get install -yq \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/*
 
 USER gitpod
-RUN rustup default nightly-2019-08-25
+RUN bash -lc "rustup default nightly-2019-08-25"
+
+USER root
