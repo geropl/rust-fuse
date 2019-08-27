@@ -18,8 +18,13 @@ travis-ci = { repository = "zargony/rust-fuse" }
 [build-dependencies]
 pkg-config = "0.3"
 
+[features]
+default = ["libc"]
+no-libc = ["libc-unix-shim"]
+
 [dependencies]
-libc = "0.2"
+libc = { optional = true, version = "0.2" }
+libc-unix-shim = { optional = true, git = "https://github.com/geropl/rs-libc-unix-shim", branch = "master" }
 log = "0.3"
 time = "0.1"
 thread-scoped = "1"

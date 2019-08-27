@@ -6,11 +6,15 @@
 
 #![warn(missing_docs, bad_style, unused, unused_extern_crates, unused_import_braces, unused_qualifications, missing_debug_implementations)]
 
-extern crate libc;
 #[macro_use]
 extern crate log;
 extern crate time;
 extern crate thread_scoped;
+
+#[cfg(feature = "libc")]
+extern crate libc;
+#[cfg(feature = "no-libc")]
+extern crate libc_unix_shim as libc;
 
 use std::convert::AsRef;
 use std::io;
